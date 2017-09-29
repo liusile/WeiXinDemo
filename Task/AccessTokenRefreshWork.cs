@@ -9,6 +9,7 @@ using Domain;
 using System.Data.Entity.Migrations;
 using Domain.Model;
 using Newtonsoft.Json;
+using WeiXinApi;
 
 namespace CustomTask
 {
@@ -28,6 +29,8 @@ namespace CustomTask
             {
                 string url = $"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={WeiXinApi.WeiXinConst.Appid}&secret={WeiXinApi.WeiXinConst.Secret}";
                 var response = new Common.HttpHelper().Get<AccessTokenRespoonse>(url);
+                WeiXinConst.Access_token = response.Access_token;
+
                 using (var db=new WeiXinDbContext())
                 {
                     db.SysSetting.AddOrUpdate(new SysSetting

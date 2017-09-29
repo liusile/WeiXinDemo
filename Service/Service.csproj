@@ -41,12 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="MenuService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{bce15743-62b8-486f-9585-619d67dc970e}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeiXinApi\WeiXinApi.csproj">
+      <Project>{b186e1bc-780b-4850-b6e4-a37cb3aa8659}</Project>
+      <Name>WeiXinApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

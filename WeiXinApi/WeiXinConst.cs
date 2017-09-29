@@ -8,7 +8,8 @@ namespace WeiXinApi
 {
     public class WeiXinConst
     {
-        public const string Secret = "c85cbd3f90918fc5ae9afc4656782252";
-        public const string Appid = "wxbdf673d990f457f1";
+        public const string Secret = "d4624c36b6795d1d99dcf0547af5443d";
+        public const string Appid = "wx32a79f07dede7a11";
+        public static string Access_token = "";
     }
 }

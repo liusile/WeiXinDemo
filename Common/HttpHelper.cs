@@ -229,7 +229,7 @@ namespace Common
         public T Post<T>(string url, object param) where T : class
         {
             var begTime = DateTime.Now;
-            var json = JsonConvert.SerializeObject(param);
+            var json = JsonConvert.SerializeObject(param, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             var byteData = Encoding.UTF8.GetBytes(json);
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
             httpRequest.Method = "post";
