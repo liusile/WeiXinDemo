@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeiXinDemo", "WeiXinDemo\WeiXinDemo.csproj", "{A58157C1-8D89-4A23-94FC-F0F8FE3972A0}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BCE15743-62B8-486F-9585-619D67DC970E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{7A4BB730-719E-4356-ACF6-C52B68219DB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeiXinDemoTests", "WeiXinDemoTests\WeiXinDemoTests.csproj", "{E35C6AFB-563A-44F8-8C15-59C4CB991A02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7A4BB730-719E-4356-ACF6-C52B68219DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A4BB730-719E-4356-ACF6-C52B68219DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A4BB730-719E-4356-ACF6-C52B68219DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E35C6AFB-563A-44F8-8C15-59C4CB991A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E35C6AFB-563A-44F8-8C15-59C4CB991A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E35C6AFB-563A-44F8-8C15-59C4CB991A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E35C6AFB-563A-44F8-8C15-59C4CB991A02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Xml.Linq;
 using WeiXinApi;
 using WeiXinApi.Model;
+using WeiXinDemo.Service;
 
 namespace WeiXinDemo.Controllers
 {
@@ -16,7 +17,7 @@ namespace WeiXinDemo.Controllers
         // GET: JoinWeiXinIn
         public void Index(JoinWeiXinRequest request)
         {
-            if (HttpContext.Request.HttpMethod == "Get")
+            if (HttpContext.Request.HttpMethod == "GET")
             {
 
                 if (new ValideWeiXin().JoinWeiXin(request))
@@ -44,6 +45,7 @@ namespace WeiXinDemo.Controllers
         {
             StringBuilder buffer = new StringBuilder();
             WeixinApiDispatch dispatch = new WeixinApiDispatch();
+
             Object responseContent = dispatch.Execute(postStr);
             System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(object));
             using (TextWriter writer = new StringWriter(buffer))
