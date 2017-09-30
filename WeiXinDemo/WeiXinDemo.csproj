@@ -211,7 +211,15 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\WeixinApiDispatch.cs" />
+    <Compile Include="Service\Handler\BaseMsgHandler.cs" />
+    <Compile Include="Service\Handler\IMsgHandler.cs" />
+    <Compile Include="Service\Handler\NullMsgHandler.cs" />
+    <Compile Include="Service\Handler\TextMsgHandler.cs" />
+    <Compile Include="Service\Model\MessageBase.cs" />
+    <Compile Include="Service\Model\MsgType.cs" />
+    <Compile Include="Service\Model\TextMessageRequest.cs" />
+    <Compile Include="Service\Model\TextMessageResponse.cs" />
+    <Compile Include="Service\WeixinMsgProcess.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -287,6 +295,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{BCE15743-62B8-486F-9585-619D67DC970E}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Task\CustomTask.csproj">
       <Project>{E90EF68F-6062-495D-AB15-52C0955CB313}</Project>
       <Name>CustomTask</Name>
@@ -314,7 +326,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>80</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/</IISUrl>
+          <IISUrl>http://localhost/WeiXinDemo</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

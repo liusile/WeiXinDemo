@@ -21,7 +21,7 @@ namespace WeiXinDemo.Service.Tests
                     <Content><![CDATA[来来来]]></Content>
                     <MsgId>6471218708403765285</MsgId>
                     </xml>";
-            var dispatch = new WeixinApiDispatch();
+            var dispatch = new WeixinMsgProcess();
             var xml = dispatch.Execute(xmlData);
             Assert.Fail();
         }

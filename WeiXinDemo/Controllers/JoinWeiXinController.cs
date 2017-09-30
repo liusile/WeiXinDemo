@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,45 +15,34 @@ namespace WeiXinDemo.Controllers
 {
     public class JoinWeiXinController : Controller
     {
-        // GET: JoinWeiXinIn
-        public void Index(JoinWeiXinRequest request)
+        [HttpGet]
+        [ActionName("Index")]
+        public void IndexGet(JoinWeiXinRequest request)
         {
-            if (HttpContext.Request.HttpMethod == "GET")
+            if (new ValideWeiXin().JoinWeiXin(request))
             {
-
-                if (new ValideWeiXin().JoinWeiXin(request))
-                {
-                    Response.Write(request.Echostr);
-                }
-            }
-            else
-            {
-                string postString = string.Empty;
-                using (Stream stream = HttpContext.Request.InputStream)
-                {
-                    Byte[] postBytes = new Byte[stream.Length];
-                    stream.Read(postBytes, 0, (Int32)stream.Length);
-                    postString = Encoding.UTF8.GetString(postBytes);
-                }
-
-                if (!string.IsNullOrEmpty(postString))
-                {
-                    Execute(postString);
-                }
+                Response.Write(request.Echostr);
             }
         }
-        private void Execute(string postStr)
+        [HttpPost]
+        [ActionName("Index")]
+        public void IndexPost()
         {
-            StringBuilder buffer = new StringBuilder();
-            WeixinApiDispatch dispatch = new WeixinApiDispatch();
-
-            Object responseContent = dispatch.Execute(postStr);
-            System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(object));
-            using (TextWriter writer = new StringWriter(buffer))
+            string postStr;
+            using (Stream stream = HttpContext.Request.InputStream)
             {
-                x.Serialize(writer, responseContent);
+                Byte[] postBytes = new Byte[stream.Length];
+                stream.Read(postBytes, 0, (Int32)stream.Length);
+                postStr = Encoding.UTF8.GetString(postBytes);
             }
-            Response.Write(buffer);
+
+            if (!string.IsNullOrEmpty(postStr))
+            {
+                Object data = new WeixinMsgProcess().Execute(postStr);
+
+                var result = XmlWeiXinHelper.SerializeForWeiXin(data);
+                Response.Write(result);
+            }
         }
     }
 }
